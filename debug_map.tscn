@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://p4hw1dscu4qs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ea0f5"]
+radius = 4.0
+height = 12.0
+
+[node name="Debug_Map" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ea0f5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Player"]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-5, 0, 0, 3, 5, 0, 5, -10, 0, -13, -5, -10)
