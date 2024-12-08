@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://co41f0ahjwqin"]
+
+[ext_resource type="Script" path="res://Common/Classes/Player_Controller.gd" id="1_wmx2x"]
+[ext_resource type="Script" path="res://Common/Classes/Components/Movement.gd" id="2_flp1j"]
+[ext_resource type="Script" path="res://Common/Classes/Character_Animator.gd" id="3_c2706"]
+[ext_resource type="Texture2D" uid="uid://debsguw1v3dh4" path="res://Entities/Player/LinkSpriteSheet.png" id="4_6qs0w"]
+[ext_resource type="Script" path="res://Common/Classes/Weapon_Animator.gd" id="4_lm6tb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ea0f5"]
+radius = 4.0
+height = 12.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_wmx2x")
+metadata/_edit_group_ = true
+
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("character_controller")]
+script = ExtResource("2_flp1j")
+character_controller = NodePath("..")
+speed = 68.0
+
+[node name="CharacterAnimator" type="AnimationPlayer" parent="." node_paths=PackedStringArray("character_controller")]
+script = ExtResource("3_c2706")
+character_controller = NodePath("..")
+
+[node name="WeaponAnimator" type="AnimationPlayer" parent="." node_paths=PackedStringArray("character_controller")]
+script = ExtResource("4_lm6tb")
+character_controller = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ea0f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("4_6qs0w")
+hframes = 8
+vframes = 4
+
+[node name="Weapon" type="Node2D" parent="."]
