@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkao3yjjjkclk"
-path="res://.godot/imported/WeaponSpriteSheet.png-8cb3189b1d1f83b7f8400b4387f5e2f8.ctex"
+uid="uid://bpsxm2ca8m684"
+path="res://.godot/imported/BuzzblobSpriteSheet.png-3a605ccd5118488d0da8ea357038fc59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/WeaponSpriteSheet.png"
-dest_files=["res://.godot/imported/WeaponSpriteSheet.png-8cb3189b1d1f83b7f8400b4387f5e2f8.ctex"]
+source_file="res://Entities/Buzzblob(Dummy)/Artwork/BuzzblobSpriteSheet.png"
+dest_files=["res://.godot/imported/BuzzblobSpriteSheet.png-3a605ccd5118488d0da8ea357038fc59.ctex"]
 
 [params]
 

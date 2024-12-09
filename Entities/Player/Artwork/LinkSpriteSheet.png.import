@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://debsguw1v3dh4"
-path="res://.godot/imported/LinkSpriteSheet.png-09383fd8873e50aef3b3987fab198f1b.ctex"
+path="res://.godot/imported/LinkSpriteSheet.png-d5fbf3de524660a486e92038be22d2f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/LinkSpriteSheet.png"
-dest_files=["res://.godot/imported/LinkSpriteSheet.png-09383fd8873e50aef3b3987fab198f1b.ctex"]
+source_file="res://Entities/Player/Artwork/LinkSpriteSheet.png"
+dest_files=["res://.godot/imported/LinkSpriteSheet.png-d5fbf3de524660a486e92038be22d2f1.ctex"]
 
 [params]
 
