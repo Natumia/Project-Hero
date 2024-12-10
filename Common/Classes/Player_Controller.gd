@@ -29,3 +29,7 @@ func _physics_process(_delta: float) -> void:
 		player_animator.play(get_animation_name("use"))
 		weapon_animator_player.play(get_animation_name("sword"))
 		
+
+func _on_flinch_target_flinch() -> void:
+	player_animator.stop()
+	
