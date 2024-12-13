@@ -1,13 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://co41f0ahjwqin"]
+[gd_scene load_steps=33 format=3 uid="uid://co41f0ahjwqin"]
 
 [ext_resource type="Script" path="res://Common/Classes/Player_Controller.gd" id="1_wmx2x"]
-[ext_resource type="Script" path="res://Common/Classes/Components/Movement.gd" id="2_flp1j"]
 [ext_resource type="Script" path="res://Common/Classes/Components/Health.gd" id="2_isepc"]
 [ext_resource type="Texture2D" uid="uid://debsguw1v3dh4" path="res://Entities/Player/Artwork/LinkSpriteSheet.png" id="4_6qs0w"]
-[ext_resource type="Script" path="res://Common/Classes/Components/Flinch.gd" id="4_rnw8t"]
+[ext_resource type="Script" path="res://Common/Classes/Components/StateMachine.gd" id="5_75cbc"]
 [ext_resource type="Texture2D" uid="uid://bkao3yjjjkclk" path="res://Entities/Player/Artwork/WeaponSpriteSheet.png" id="5_dddn6"]
+[ext_resource type="Script" path="res://Common/Classes/Components/States/Idle.gd" id="6_8dv2m"]
 [ext_resource type="Script" path="res://Common/Classes/HitBox.gd" id="6_028x4"]
 [ext_resource type="Script" path="res://Common/Classes/HurtBox.gd" id="7_nuhw8"]
+[ext_resource type="Script" path="res://Common/Classes/Components/States/Moving.gd" id="7_s2npv"]
 
 [sub_resource type="Animation" id="Animation_kiltp"]
 length = 0.001
@@ -459,9 +460,6 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy1m2"]
 size = Vector2(0, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7vbo"]
-size = Vector2(14, 10)
 
 [sub_resource type="Animation" id="Animation_x4kts"]
 length = 0.001
@@ -963,6 +961,9 @@ _data = {
 "use_up": SubResource("Animation_2qwgo")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7vbo"]
+size = Vector2(14, 10)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ea0f5"]
 radius = 4.0
 height = 12.0
@@ -976,16 +977,17 @@ metadata/_edit_group_ = true
 script = ExtResource("2_isepc")
 hurt_box = NodePath("../HurtBox")
 
-[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("character_controller")]
-script = ExtResource("2_flp1j")
-character_controller = NodePath("..")
-speed = 68.0
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_75cbc")
+initial_state = NodePath("Idle")
 
-[node name="Flinch" type="Node" parent="." node_paths=PackedStringArray("character_controller", "movement", "hurt_box")]
-script = ExtResource("4_rnw8t")
-character_controller = NodePath("..")
-movement = NodePath("../Movement")
-hurt_box = NodePath("../HurtBox")
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller")]
+script = ExtResource("6_8dv2m")
+character_controller = NodePath("../..")
+
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller")]
+script = ExtResource("7_s2npv")
+character_controller = NodePath("../..")
 
 [node name="Weapon" type="Node2D" parent="."]
 
@@ -1008,6 +1010,11 @@ visible = false
 texture = ExtResource("5_dddn6")
 hframes = 2
 
+[node name="PlayerAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mw2du")
+}
+
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(0, -1)
 collision_layer = 0
@@ -1016,11 +1023,6 @@ script = ExtResource("7_nuhw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_v7vbo")
-
-[node name="PlayerAnimator" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_mw2du")
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -1032,5 +1034,3 @@ position = Vector2(0, -5)
 texture = ExtResource("4_6qs0w")
 hframes = 8
 vframes = 4
-
-[connection signal="target_flinch" from="Flinch" to="." method="_on_flinch_target_flinch"]

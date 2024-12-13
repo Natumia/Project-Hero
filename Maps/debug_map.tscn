@@ -11,3 +11,39 @@ position = Vector2(40, 124)
 
 [node name="Buzzblob(Dummy)" parent="." instance=ExtResource("2_c64o6")]
 position = Vector2(75, 70)
+
+[node name="Buzzblob(Dummy)2" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(106, 92)
+
+[node name="Buzzblob(Dummy)3" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(124, 67)
+
+[node name="Buzzblob(Dummy)4" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(39, 54)
+
+[node name="Buzzblob(Dummy)5" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(75, 53)
+
+[node name="Buzzblob(Dummy)6" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(91, 53)
+
+[node name="Buzzblob(Dummy)7" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(124, 52)
+
+[node name="Buzzblob(Dummy)8" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(111, 25)
+
+[node name="Buzzblob(Dummy)9" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(65, 19)
+
+[node name="Buzzblob(Dummy)10" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(50, 19)
+
+[node name="Buzzblob(Dummy)11" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(17, 30)
+
+[node name="Buzzblob(Dummy)12" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(138, 100)
+
+[node name="Buzzblob(Dummy)13" parent="." instance=ExtResource("2_c64o6")]
+position = Vector2(110, 113)

@@ -18,8 +18,10 @@ func flinch(area) -> void:
 	target_flinch.emit()
 	if movement:
 		character_controller.can_move = false
+		character_controller.can_attack = false
 		character_controller.input_vector = -character_controller.global_position.direction_to(area.global_position) * force_multiplier
 		await get_tree().create_timer(delay_input).timeout
 		character_controller.can_move = true
+		character_controller.can_attack = true
 		character_controller.input_vector = Vector2.ZERO
 	else: printerr("Requires Movement Component.")
