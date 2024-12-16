@@ -13,3 +13,6 @@ func _on_health_target_hit(health) -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "shock":
 		animation_player.play("idle")
+
+func _process(_delta: float) -> void:
+	$StateMachinDebug.text = $StateMachine.current_state.name
