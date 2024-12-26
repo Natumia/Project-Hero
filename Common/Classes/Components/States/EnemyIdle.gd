@@ -18,18 +18,23 @@ func _state_begin() -> void:
 	move_time_left = move_timer * randf_range(1 - move_timer_variance, 1 + move_timer_variance)
 
 func _update(delta: float) -> void:
-	var player_vector = get_tree().get_first_node_in_group("Player").global_position
-	if character_controller.global_position.distance_to(player_vector) < 48:
-		transition.emit("chase")
+	var player_node = get_tree().get_first_node_in_group("Player")
+	if player_node:
+		var player_vector = player_node.global_position
+		if character_controller.global_position.distance_to(player_vector) < 48:
+			transition.emit("chase")
 	if wait_time_left > 0:
 		wait_time_left -= delta
 	else:
+		$"../../AnimationPlayer".play("move")
 		character_controller.velocity = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * movement_speed
 		move_time_left = move_timer * randf_range(1 - move_timer_variance, 1 + move_timer_variance)
 		wait_time_left = wait_timer * randf_range(1 - wait_timer_variance, 1 + wait_timer_variance)
+	
 	if move_time_left > 0:
 		move_time_left -= delta
-		
+	else:
+		$"../../AnimationPlayer".play("idle")
 
 func _update_physics(_delta: float) -> void:
 	if move_time_left >= 0:
