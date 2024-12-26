@@ -1,4 +1,4 @@
-class_name Flinching
+class_name Flinch
 extends State
 
 @export var character_controller: CharacterController
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func start_flinch(area) -> void:
 	avoid_vector = area.global_position
-	transition.emit("flinching")
+	transition.emit("flinch")
 
 func _update_physics(_delta: float) -> void:
 	character_controller.velocity = -character_controller.global_position.direction_to(avoid_vector) * force

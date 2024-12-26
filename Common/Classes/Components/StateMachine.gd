@@ -7,7 +7,7 @@ var current_state: State
 var loaded_states: Dictionary = {}
 
 func change_state(input_state: String) -> void:
-	if loaded_states.has(input_state):
+	if loaded_states.has(input_state.to_lower()):
 		if loaded_states[input_state.to_lower()] != current_state:
 			var previous_state = current_state
 			if loaded_states[input_state.to_lower()]:

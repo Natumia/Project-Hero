@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://p4hw1dscu4qs"]
 
 [ext_resource type="PackedScene" uid="uid://co41f0ahjwqin" path="res://Entities/Player/player.tscn" id="1_ncvyx"]
-[ext_resource type="PackedScene" uid="uid://dchdty5cxcfqa" path="res://Entities/Buzzblob(Dummy)/buzzblob(dummy).tscn" id="2_c64o6"]
+[ext_resource type="PackedScene" uid="uid://cth8oprhguwih" path="res://Entities/Zol/zol.tscn" id="3_8w7oy"]
 
 [node name="DebugMap" type="Node2D"]
 y_sort_enabled = true
@@ -9,41 +9,5 @@ y_sort_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_ncvyx")]
 position = Vector2(40, 124)
 
-[node name="Buzzblob(Dummy)" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(75, 70)
-
-[node name="Buzzblob(Dummy)2" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(106, 92)
-
-[node name="Buzzblob(Dummy)3" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(124, 67)
-
-[node name="Buzzblob(Dummy)4" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(39, 54)
-
-[node name="Buzzblob(Dummy)5" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(75, 53)
-
-[node name="Buzzblob(Dummy)6" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(91, 53)
-
-[node name="Buzzblob(Dummy)7" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(124, 52)
-
-[node name="Buzzblob(Dummy)8" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(111, 25)
-
-[node name="Buzzblob(Dummy)9" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(65, 19)
-
-[node name="Buzzblob(Dummy)10" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(50, 19)
-
-[node name="Buzzblob(Dummy)11" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(17, 30)
-
-[node name="Buzzblob(Dummy)12" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(138, 100)
-
-[node name="Buzzblob(Dummy)13" parent="." instance=ExtResource("2_c64o6")]
-position = Vector2(110, 113)
+[node name="Zol" parent="." instance=ExtResource("3_8w7oy")]
+position = Vector2(69, 65)

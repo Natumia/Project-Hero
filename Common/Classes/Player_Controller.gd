@@ -5,7 +5,7 @@ extends CharacterController
 @onready var weapon_animator_player: AnimationPlayer = $Weapon/AnimationPlayer
 
 func _process(_delta: float) -> void:
-	$StateMachinDebug.text = $StateMachine.current_state.name
+	$StateMachineDebug.text = $StateMachine.current_state.name
 
 func _physics_process(_delta: float) -> void:
 	if can_move == true:

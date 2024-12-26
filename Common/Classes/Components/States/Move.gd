@@ -1,4 +1,4 @@
-class_name Moving
+class_name Move
 extends State
 
 @export var character_controller: CharacterController

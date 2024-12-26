@@ -1,13 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dchdty5cxcfqa"]
+[gd_scene load_steps=13 format=3 uid="uid://dchdty5cxcfqa"]
 
 [ext_resource type="Script" path="res://Entities/Buzzblob(Dummy)/dummy.gd" id="1_l44mj"]
 [ext_resource type="Script" path="res://Common/Classes/Components/Health.gd" id="2_xibc5"]
 [ext_resource type="Script" path="res://Common/Classes/HurtBox.gd" id="3_dly4g"]
-[ext_resource type="Script" path="res://Common/Classes/Components/StateMachine.gd" id="3_mt08c"]
 [ext_resource type="Texture2D" uid="uid://bpsxm2ca8m684" path="res://Entities/Buzzblob(Dummy)/Artwork/BuzzblobSpriteSheet.png" id="4_16vdq"]
 [ext_resource type="Script" path="res://Common/Classes/HitBox.gd" id="5_ejsx6"]
-[ext_resource type="Script" path="res://Common/Classes/Components/States/Flinching.gd" id="5_kb0fo"]
-[ext_resource type="Script" path="res://Common/Classes/Components/States/Idle.gd" id="7_k72er"]
 
 [sub_resource type="Animation" id="Animation_qqh4l"]
 length = 0.001
@@ -121,20 +118,7 @@ script = ExtResource("2_xibc5")
 max_health = 4.0
 hurt_box = NodePath("../HurtBox")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_mt08c")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller")]
-script = ExtResource("7_k72er")
-character_controller = NodePath("../..")
-
-[node name="Flinching" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller", "hurt_box")]
-script = ExtResource("5_kb0fo")
-character_controller = NodePath("../..")
-hurt_box = NodePath("../../HurtBox")
-
-[node name="StateMachinDebug" type="Label" parent="."]
+[node name="StateMachineDebug" type="Label" parent="."]
 offset_left = -8.0
 offset_top = -16.0
 offset_right = 8.0

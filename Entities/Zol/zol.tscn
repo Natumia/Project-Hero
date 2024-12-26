@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cth8oprhguwih"]
+
+[ext_resource type="Script" path="res://Entities/Zol/zol.gd" id="1_hxu1a"]
+[ext_resource type="Script" path="res://Common/Classes/Components/Health.gd" id="2_sku4c"]
+[ext_resource type="Script" path="res://Common/Classes/Components/StateMachine.gd" id="3_6lo3k"]
+[ext_resource type="Script" path="res://Common/Classes/Components/States/EnemyIdle.gd" id="4_4nxop"]
+[ext_resource type="Script" path="res://Common/Classes/Components/States/EnemyChase.gd" id="5_7axpv"]
+[ext_resource type="Script" path="res://Common/Classes/HurtBox.gd" id="6_2m70y"]
+[ext_resource type="Script" path="res://Common/Classes/HitBox.gd" id="8_516nd"]
+[ext_resource type="Texture2D" uid="uid://bpsxm2ca8m684" path="res://Entities/Buzzblob(Dummy)/Artwork/BuzzblobSpriteSheet.png" id="9_nhwjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6tke"]
+size = Vector2(12, 10)
+
+[node name="Zol" type="CharacterBody2D"]
+script = ExtResource("1_hxu1a")
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurt_box")]
+script = ExtResource("2_sku4c")
+hurt_box = NodePath("../HurtBox")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_6lo3k")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller")]
+script = ExtResource("4_4nxop")
+character_controller = NodePath("../..")
+
+[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller")]
+script = ExtResource("5_7axpv")
+character_controller = NodePath("../..")
+
+[node name="StateMachineDebug" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -18.0
+offset_right = 8.0
+offset_bottom = -14.0
+theme_override_font_sizes/font_size = 2
+text = "current_state"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../HurtBox")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_2m70y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("8_516nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_x6tke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("9_nhwjl")
+hframes = 3

@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bkao3yjjjkclk" path="res://Entities/Player/Artwork/WeaponSpriteSheet.png" id="5_dddn6"]
 [ext_resource type="Script" path="res://Common/Classes/Components/States/Idle.gd" id="6_8dv2m"]
 [ext_resource type="Script" path="res://Common/Classes/HitBox.gd" id="6_028x4"]
-[ext_resource type="Script" path="res://Common/Classes/Components/States/Flinching.gd" id="6_v0h10"]
+[ext_resource type="Script" path="res://Common/Classes/Components/States/Flinch.gd" id="6_v0h10"]
 [ext_resource type="Script" path="res://Common/Classes/HurtBox.gd" id="7_nuhw8"]
-[ext_resource type="Script" path="res://Common/Classes/Components/States/Moving.gd" id="7_s2npv"]
+[ext_resource type="Script" path="res://Common/Classes/Components/States/Move.gd" id="7_s2npv"]
 
 [sub_resource type="Animation" id="Animation_kiltp"]
 length = 0.001
@@ -969,7 +969,7 @@ size = Vector2(10, 8)
 radius = 4.0
 height = 12.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 motion_mode = 1
 script = ExtResource("1_wmx2x")
 metadata/_edit_group_ = true
@@ -986,16 +986,16 @@ initial_state = NodePath("Idle")
 script = ExtResource("6_8dv2m")
 character_controller = NodePath("../..")
 
-[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller")]
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller")]
 script = ExtResource("7_s2npv")
 character_controller = NodePath("../..")
 
-[node name="Flinching" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller", "hurt_box")]
+[node name="Flinch" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller", "hurt_box")]
 script = ExtResource("6_v0h10")
 character_controller = NodePath("../..")
 hurt_box = NodePath("../../HurtBox")
 
-[node name="StateMachinDebug" type="Label" parent="."]
+[node name="StateMachineDebug" type="Label" parent="."]
 offset_left = -8.0
 offset_top = -18.0
 offset_right = 8.0
