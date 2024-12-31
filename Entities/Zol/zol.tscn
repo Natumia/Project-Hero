@@ -138,14 +138,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lc35"]
-size = Vector2(7, 6)
+size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6tke"]
 size = Vector2(12, 10)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ure7g"]
 radius = 3.0
-height = 10.0
+height = 8.0
 
 [node name="Zol" type="CharacterBody2D"]
 script = ExtResource("1_hxu1a")
@@ -170,6 +170,12 @@ character_controller = NodePath("../..")
 script = ExtResource("6_otbtu")
 rebound_force = 128.0
 rebound_time = 0.085
+character_controller = NodePath("../..")
+
+[node name="Rebound" type="Node" parent="StateMachine" node_paths=PackedStringArray("character_controller")]
+script = ExtResource("6_otbtu")
+rebound_force = 64.0
+rebound_time = 0.06
 character_controller = NodePath("../..")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
@@ -202,12 +208,11 @@ collision_mask = 2
 script = ExtResource("6_2m70y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_0lc35")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("8_516nd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -227,3 +232,4 @@ frame = 1
 [connection signal="no_health" from="Health" to="." method="_on_health_no_health"]
 [connection signal="target_hit" from="Health" to="." method="_on_health_target_hit"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

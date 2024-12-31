@@ -970,6 +970,7 @@ radius = 4.0
 height = 12.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_wmx2x")
 metadata/_edit_group_ = true
