@@ -1,30 +1,24 @@
 [gd_scene load_steps=3 format=3 uid="uid://p4hw1dscu4qs"]
 
-[ext_resource type="PackedScene" uid="uid://co41f0ahjwqin" path="res://Entities/Player/player.tscn" id="1_ncvyx"]
+[ext_resource type="PackedScene" uid="uid://co41f0ahjwqin" path="res://Entities/Player/player.tscn" id="2_04730"]
 [ext_resource type="PackedScene" uid="uid://cth8oprhguwih" path="res://Entities/Zol/zol.tscn" id="3_8w7oy"]
 
 [node name="DebugMap" type="Node2D"]
 y_sort_enabled = true
-
-[node name="Zol" parent="." instance=ExtResource("3_8w7oy")]
-position = Vector2(69, 65)
-
-[node name="Zol2" parent="." instance=ExtResource("3_8w7oy")]
-position = Vector2(125, 40)
-
-[node name="Zol3" parent="." instance=ExtResource("3_8w7oy")]
-position = Vector2(112, 88)
-
-[node name="Zol4" parent="." instance=ExtResource("3_8w7oy")]
-position = Vector2(50, 23)
-
-[node name="Zol5" parent="." instance=ExtResource("3_8w7oy")]
-position = Vector2(41, 114)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(5, 3, 156, 3, 156, 141, 3, 141, 6, -34, -13, -33, -15, 154, 177, 155, 169, -16, 3, -18)
 
-[node name="Player" parent="." instance=ExtResource("1_ncvyx")]
-position = Vector2(69, 114)
+[node name="Zol" parent="." instance=ExtResource("3_8w7oy")]
+position = Vector2(79, 47)
+
+[node name="Zol2" parent="." instance=ExtResource("3_8w7oy")]
+position = Vector2(111, 23)
+
+[node name="Zol4" parent="." instance=ExtResource("3_8w7oy")]
+position = Vector2(50, 23)
+
+[node name="Player" parent="." instance=ExtResource("2_04730")]
+position = Vector2(79, 133)

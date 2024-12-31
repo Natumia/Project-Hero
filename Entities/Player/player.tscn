@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://co41f0ahjwqin"]
 
-[ext_resource type="Script" path="res://Common/Classes/Player_Controller.gd" id="1_wmx2x"]
+[ext_resource type="Script" path="res://Common/Classes/PlayerController.gd" id="1_wmx2x"]
 [ext_resource type="Script" path="res://Common/Classes/Components/Health.gd" id="2_isepc"]
 [ext_resource type="Texture2D" uid="uid://debsguw1v3dh4" path="res://Entities/Player/Artwork/LinkSpriteSheet.png" id="4_6qs0w"]
 [ext_resource type="Script" path="res://Common/Classes/Components/StateMachine.gd" id="5_75cbc"]
