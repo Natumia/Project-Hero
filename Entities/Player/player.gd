@@ -1,4 +1,3 @@
-class_name PlayerController
 extends CharacterController
 
 @onready var player_animator: AnimationPlayer = $PlayerAnimator

@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 func _on_hurt_box_area_entered(_area: Area2D) -> void:
 	$StateMachine.change_state("flinch")
 
-func _on_hit_box_body_entered(body: Node2D) -> void:
+func _on_hit_box_body_entered(_body: Node2D) -> void:
 	$StateMachine.change_state("rebound")
 
 func _on_health_target_hit(value) -> void:

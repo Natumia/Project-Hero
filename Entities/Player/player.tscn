@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://co41f0ahjwqin"]
 
-[ext_resource type="Script" path="res://Common/Classes/PlayerController.gd" id="1_wmx2x"]
+[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_wmx2x"]
 [ext_resource type="Script" path="res://Common/Classes/Components/Health.gd" id="2_isepc"]
 [ext_resource type="Texture2D" uid="uid://debsguw1v3dh4" path="res://Entities/Player/Artwork/LinkSpriteSheet.png" id="4_6qs0w"]
 [ext_resource type="Script" path="res://Common/Classes/Components/StateMachine.gd" id="5_75cbc"]
@@ -963,7 +963,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7vbo"]
-size = Vector2(10, 8)
+size = Vector2(12, 8)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ea0f5"]
 radius = 4.0
