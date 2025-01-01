@@ -5,7 +5,14 @@ extends CharacterBody2D
 @export var can_attack: bool = true
 
 var input_vector: Vector2 = Vector2.ZERO
-@export var facing_vector: Vector2 = Vector2.DOWN
+@export var facing_vector: Vector2 = Vector2.DOWN:
+	set(input):
+		input = input.sign()
+		if abs(input.x) == abs(input.y):
+			input.y = input.y
+			input.x = 0
+		facing_vector = input
+		
 
 func get_animation_name(animation_prefix: String = "") -> String:
 	match facing_vector:

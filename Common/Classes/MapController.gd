@@ -1,0 +1,2 @@
+class_name MapController
+extends Node2D

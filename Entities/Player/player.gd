@@ -15,12 +15,7 @@ func _physics_process(_delta: float) -> void:
 			player_animator.play(get_animation_name("idle"))
 			
 	if input_vector != Vector2.ZERO:
-		if abs(input_vector.x) == abs(input_vector.y):
-			facing_vector.y = input_vector.y
-			facing_vector.x = 0
-		else: 
-			facing_vector = input_vector
-		facing_vector = sign(facing_vector)
+		facing_vector = input_vector
 		
 	if Input.is_action_just_pressed("attack") and can_attack:
 		can_move = false
