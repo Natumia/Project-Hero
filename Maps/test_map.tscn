@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p4hw1dscu4qs" path="res://Maps/debug_map.tscn" id="4_w8r3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg2ox"]
+size = Vector2(1, 1)
 
 [node name="TestMap" type="Node2D"]
 script = ExtResource("1_ok0e8")
@@ -15,7 +16,7 @@ tile_map_data = PackedByteArray("AAACAAIAAAARAA0AAAAAAAAAAAAIAAgAAAAAAAEAAAABAAU
 tile_set = ExtResource("2_poexp")
 
 [node name="MapTransfer" type="Area2D" parent="."]
-position = Vector2(8, 32)
+position = Vector2(136, 40)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_vej34")

@@ -3,6 +3,9 @@ extends CharacterController
 @onready var player_animator: AnimationPlayer = $PlayerAnimator
 @onready var weapon_animator_player: AnimationPlayer = $Weapon/AnimationPlayer
 
+func _ready() -> void:
+	$ActionRay.target_position = facing_vector * 14
+
 func _process(_delta: float) -> void:
 	$StateMachineDebug.text = $StateMachine.current_state.name
 
@@ -16,6 +19,7 @@ func _physics_process(_delta: float) -> void:
 			
 	if input_vector != Vector2.ZERO:
 		facing_vector = input_vector
+		$ActionRay.target_position = facing_vector * 14
 		
 	if Input.is_action_just_pressed("attack") and can_attack:
 		can_move = false
@@ -26,6 +30,9 @@ func _physics_process(_delta: float) -> void:
 		player_animator.play(get_animation_name("use"))
 		weapon_animator_player.play(get_animation_name("sword"))
 		
+	#NOTE I will come back to this and add functionality when I have doors implemented.
+	if Input.is_action_just_pressed("action"):
+		pass
 
 func _on_flinch_target_flinch() -> void:
 	player_animator.stop()

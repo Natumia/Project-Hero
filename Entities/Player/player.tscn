@@ -1005,6 +1005,9 @@ theme_override_font_sizes/font_size = 2
 text = "current_state"
 horizontal_alignment = 1
 
+[node name="ActionRay" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+
 [node name="Weapon" type="Node2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Weapon"]
