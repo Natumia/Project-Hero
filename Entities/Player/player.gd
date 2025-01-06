@@ -32,7 +32,11 @@ func _physics_process(_delta: float) -> void:
 		
 	#NOTE I will come back to this and add functionality when I have doors implemented.
 	if Input.is_action_just_pressed("action"):
-		pass
+		var new_collider = $ActionRay.get_collider()
+		if new_collider != null:
+			for i in new_collider.get_children():
+				if i is Door:
+					i.open()
 
 func _on_flinch_target_flinch() -> void:
 	player_animator.stop()
